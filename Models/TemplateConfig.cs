@@ -40,7 +40,7 @@ namespace OmrSheet.Models
                     Options = new[] { "A", "B", "C", "D" },
                     RadiusX = 0.018,
                     RadiusY = 0.020,
-                    MinFillRatio = 0.30,
+                    MinFillRatio = 0.50,
                     MinMarginRatio = 0.10
                 },
                 new TemplateConfig
@@ -49,36 +49,53 @@ namespace OmrSheet.Models
                     Name = "50 Questions (2 Columns)",
                     TotalQuestions = 50,
                     QuestionsPerColumn = 25,
-                    RowY = Enumerable.Range(0, 25).Select(i => 0.140 + (i * 0.034)).ToArray(),
+
+                    // Bubble row centers
+                    RowY = Enumerable.Range(0, 25)
+                        .Select(i => 0.149 + (i * 0.0335))
+                        .ToArray(),
+
+                    // A B C D
                     ColumnsX = new List<double[]>
                     {
-                        new double[] { 0.430, 0.490, 0.550, 0.610 },
-                        new double[] { 0.740, 0.800, 0.860, 0.920 }
+                        new[] { 0.416, 0.488, 0.560, 0.633 },
+                        new[] { 0.732, 0.804, 0.876, 0.948 }
                     },
+
                     Options = new[] { "A", "B", "C", "D" },
-                    RadiusX = 0.015,
-                    RadiusY = 0.015,
-                    MinFillRatio = 0.30,
+
+                    RadiusX = 0.017,
+                    RadiusY = 0.014,
+
+                    MinFillRatio = 0.50,
                     MinMarginRatio = 0.10
                 },
-                new TemplateConfig
+               new TemplateConfig
                 {
                     Id = "Template3",
                     Name = "100 Questions (4 Columns)",
                     TotalQuestions = 100,
                     QuestionsPerColumn = 25,
-                    RowY = Enumerable.Range(0, 25).Select(i => 0.180 + (i * 0.031)).ToArray(),
+
+                    // Bubble row centers
+                    RowY = Enumerable.Range(0, 25)
+                        .Select(i => 0.221 + (i * 0.0312))
+                        .ToArray(),
+
                     ColumnsX = new List<double[]>
                     {
-                        new double[] { 0.110, 0.150, 0.190, 0.230 },
-                        new double[] { 0.340, 0.380, 0.420, 0.460 },
-                        new double[] { 0.570, 0.610, 0.650, 0.690 },
-                        new double[] { 0.800, 0.840, 0.880, 0.920 }
+                        new[] { 0.153, 0.192, 0.231, 0.270 }, // Q1-25
+                        new[] { 0.387, 0.426, 0.465, 0.504 }, // Q26-50
+                        new[] { 0.621, 0.660, 0.699, 0.738 }, // Q51-75
+                        new[] { 0.856, 0.895, 0.934, 0.973 }  // Q76-100
                     },
+
                     Options = new[] { "A", "B", "C", "D" },
-                    RadiusX = 0.012,
+
+                    RadiusX = 0.013,
                     RadiusY = 0.012,
-                    MinFillRatio = 0.30,
+
+                    MinFillRatio = 0.60,
                     MinMarginRatio = 0.10
                 }
             };
